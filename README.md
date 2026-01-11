@@ -1,2 +1,2 @@
 # NexaHub
-Nexahub is a futuristic Shark Tank like platform, build with purely html, css and js, no back-end, no frameworks, only front-end
+NexaHub is an AI-powered platform connecting founders with global investors for faster, transparent funding. It uses smart contracts and matching algorithms to streamline startup investment.
