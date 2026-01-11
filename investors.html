@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexaHub | Investors</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body,div,h1,h2,h3,h4,p,ul,li,a,img,input,select,button {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #05070a;
+            color: #fff;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(circle at 15% 50%, rgba(188, 19, 254, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(0, 242, 255, 0.08), transparent 25%);
+        }
+
+        h1,h2,h3,h4 {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .cyan {
+            color: #00f2ff;
+        }
+
+        .purple {
+            color: #bc13fe;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .space-b {
+            margin-bottom: 32px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            border: 1px solid transparent;
+            text-transform: uppercase;
+            font-size: 14.4px;
+            display: inline-block;
+        }
+
+        .btn-main {
+            background: rgba(0, 242, 255, 0.1);
+            border-color: #00f2ff;
+            color: #00f2ff;
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+        }
+
+        .btn-main:hover {
+            background: #00f2ff;
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
+        }
+
+        .btn-alt {
+            background: rgba(188, 19, 254, 0.1);
+            border-color: #bc13fe;
+            color: #bc13fe;
+        }
+
+        .btn-alt:hover {
+            background: #bc13fe;
+            color: #fff;
+            box-shadow: 0 0 30px rgba(188, 19, 254, 0.4);
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 7, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 16px 0;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(90deg, #00f2ff, #bc13fe);
+            background-clip: text;
+            color: transparent;
+            cursor: pointer;
+        }
+
+        .nav {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav a {
+            font-size: 14.4px;
+            font-weight: 500;
+            color: #a0aec0;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav a:hover {
+            color: #00f2ff;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00f2ff;
+            transition: 0.3s;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        .page {
+            padding-top: 100px;
+            padding-bottom: 60px;
+            min-height: 100vh;
+            animation: fade 0.5s;
+        }
+
+
+        .filters {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .search,
+        .select {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+        }
+
+        .search:focus,
+        .select:focus {
+            border-color: #00f2ff;
+        }
+
+        .search {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .inv-card {
+            text-align: center;
+        }
+
+        .inv-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 16px;
+            border: 2px solid #00f2ff;
+            padding: 4px;
+            background: transparent;
+        }
+
+        .stats {
+            width: 100%;
+            height: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .stat-num {
+            font-size: 32px;
+            font-weight: 700;
+            margin: 8px 0;
+            font-family: 'Orbitron';
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 7, 10, 0.6);
+            border-bottom: 1px solid rgba(0, 242, 255, 0.1);
+            padding: 16px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #00f2ff, #bc13fe);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .logo:hover {
+            filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.6));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 14.4px;
+            font-weight: 500;
+            color: #a0aec0;
+            position: relative;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00f2ff, #bc13fe);
+            transition: width 0.3s;
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            text-transform: uppercase;
+            font-size: 14.4px;
+            display: inline-block;
+        }
+
+        .btn1 {
+            background: rgba(0, 242, 255, 0.05);
+            border: 1px solid #00f2ff;
+            color: #00f2ff;
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.2), inset 0 0 10px rgba(0, 242, 255, 0.1);
+        }
+
+        .btn1:hover {
+            background: #00f2ff;
+            color: #000;
+            box-shadow: 0 0 40px rgba(0, 242, 255, 0.6);
+        }
+
+        footer {
+            font-family: 'Inter', sans-serif;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 64px 0 32px 0;
+            text-align: center;
+            color: #a0aec0;
+            width: 100%;
+            background-color: #05070a;
+            background-image: linear-gradient(to top, rgba(255, 255, 255, 0.02), transparent);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #00f2ff, #bc13fe);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .footer-desc {
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .newsletter-box {
+            margin-bottom: 40px;
+        }
+
+        .newsletter-input {
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            outline: none;
+            width: 250px;
+            margin-right: 10px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .newsletter-btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: none;
+            background: #00f2ff;
+            color: #000;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+        }
+
+        .social-icons {
+            margin-bottom: 32px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover img {
+            transform: translateY(-5px);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #a0aec0;
+            transition: 0.3s ease;
+            font-size: 15.2px;
+        }
+
+        .footer-links a:hover {
+            color: #00f2ff;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-cube"></i> NEXAHUB
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="initiatives.html">Initiatives</a>
+                <a href="investors.html">Investors</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+
+            <div>
+                <a href="login.html">
+                    <button class="btn btn1">Login</button>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <br>
+
+    <div id="content">
+
+        <div id="inv-page" class="page wrap">
+            <h2 class="space-b">Elite Investors</h2>
+            <div class="filters">
+                <input type="text" class="search" placeholder="Find investors...">
+                <select class="select">
+                    <option>All Sectors</option>
+                </select>
+            </div>
+            <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 2rem;">
+                <div class="card inv-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
+                        class="inv-img" alt="Aria Sterling">
+                    <h3>Aria Sterling</h3>
+                    <p class="cyan" style="margin: 0.5rem 0;">AI & Robotics</p>
+                    <div style="margin: 1rem 0; padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 8px;">
+                        <div style="font-size: 0.8rem; color: #a0aec0;">Total Invested</div>
+                        <div style="font-size: 1.2rem; font-weight: bold;">$5.2M</div>
+                    </div>
+                    <button class="btn btn-alt" onclick="viewInv(1)">View Profile</button>
+                </div>
+
+                <div class="card inv-card">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80"
+                        class="inv-img" alt="Leo Vance">
+                    <h3>Leo Vance</h3>
+                    <p class="cyan" style="margin: 0.5rem 0;">FinTech</p>
+                    <div style="margin: 1rem 0; padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 8px;">
+                        <div style="font-size: 0.8rem; color: #a0aec0;">Total Invested</div>
+                        <div style="font-size: 1.2rem; font-weight: bold;">$8.1M</div>
+                    </div>
+                    <button class="btn btn-alt" onclick="viewInv(2)">View Profile</button>
+                </div>
+
+                <div class="card inv-card">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80"
+                        class="inv-img" alt="Satoshi Nakamoto II">
+                    <h3>Satoshi Nakamoto II</h3>
+                    <p class="cyan" style="margin: 0.5rem 0;">Blockchain</p>
+                    <div style="margin: 1rem 0; padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 8px;">
+                        <div style="font-size: 0.8rem; color: #a0aec0;">Total Invested</div>
+                        <div style="font-size: 1.2rem; font-weight: bold;">$12M</div>
+                    </div>
+                    <button class="btn btn-alt" onclick="viewInv(3)">View Profile</button>
+                </div>
+
+                <div class="card inv-card">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80"
+                        class="inv-img" alt="Elena Musk">
+                    <h3>Elena Musk</h3>
+                    <p class="cyan" style="margin: 0.5rem 0;">SpaceTech</p>
+                    <div style="margin: 1rem 0; padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 8px;">
+                        <div style="font-size: 0.8rem; color: #a0aec0;">Total Invested</div>
+                        <div style="font-size: 1.2rem; font-weight: bold;">$25M</div>
+                    </div>
+                    <button class="btn btn-alt" onclick="viewInv(4)">View Profile</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="inv-profile" class="page wrap hide">
+            <button class="btn btn-alt" onclick="goTo('inv-page')" style="margin-bottom: 2rem; padding: 8px 16px;">
+                <i class="fas fa-arrow-left"></i> Back
+            </button>
+
+            <div class="card"
+                style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                <img id="inv-pic" src=""
+                    style="width: 150px; height: 150px; border-radius: 50%; border: 3px solid #00f2ff;" alt="">
+                <div>
+                    <h1 id="inv-title" style="margin-bottom: 0.5rem;"></h1>
+                    <p id="inv-type" class="cyan" style="font-size: 1.2rem; margin-bottom: 1rem;"></p>
+                    <p style="color: #a0aec0; max-width: 600px;">
+                        Experienced venture capitalist focused on early-stage disruptive technologies.
+                        Passionate about helping founders build the future of humanity through sustainable and scalable
+                        innovation.
+                    </p>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="card" style="text-align: center;">
+                    <div style="color: #a0aec0;">Total Invested</div>
+                    <div id="inv-total" class="stat-num cyan"></div>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div style="color: #a0aec0;">Initiatives Backed</div>
+                    <div class="stat-num purple">14</div>
+                </div>
+                <div class="card" style="text-align: center;">
+                    <div style="color: #a0aec0;">Avg. Ticket Size</div>
+                    <div class="stat-num">$250k</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Investment History</h3>
+            <div class="grid"
+                style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                <div class="card">
+                    <h4>NeuroLink AI</h4>
+                    <p style="color: #a0aec0; font-size: 0.9rem;">Seed Round • 2024</p>
+                    <div style="margin-top: 0.5rem; font-weight: bold;">$500,000 Invested</div>
+                </div>
+                <div class="card">
+                    <h4>Quantum Shield</h4>
+                    <p style="color: #a0aec0; font-size: 0.9rem;">Series A • 2023</p>
+                    <div style="margin-top: 0.5rem; font-weight: bold;">$1,200,000 Invested</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br>
+
+    <footer>
+        <div class="container">
+
+            <div class="footer-brand">NEXAHUB</div>
+            <p class="footer-desc">
+                Empowering the next generation of innovators. Join us in shaping the future through decentralized
+                technology and strategic capital allocation.
+            </p>
+
+            <div class="newsletter-box">
+                <input type="email" class="newsletter-input" placeholder="Enter your email...">
+                <button class="newsletter-btn"
+                    onclick="alert('Sorry! Newsletter service is currently unavailable.')">Subscribe</button>
+            </div>
+
+            <div class="social-icons">
+                <a href="#"><img src="https://api.iconify.design/mdi:twitter.svg?color=%23a0aec0" alt="Twitter"></a>
+                <a href="#"><img src="https://api.iconify.design/mdi:linkedin.svg?color=%23a0aec0" alt="LinkedIn"></a>
+                <a href="#"><img src="https://api.iconify.design/mdi:instagram.svg?color=%23a0aec0" alt="Instagram"></a>
+                <a href="#"><img src="https://api.iconify.design/mdi:facebook.svg?color=%23a0aec0" alt="Facebook"></a>
+            </div>
+
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="faq.html">FAQ</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>&copy; 2026 NexaHub. Where Ideas Meet Capital.</p>
+        </div>
+    </footer>
+
+    <script>
+        const invData = [
+            { id: 1, name: "Aria Sterling", type: "AI & Robotics", total: "5.2M", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80" },
+            { id: 2, name: "Leo Vance", type: "FinTech", total: "8.1M", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80" },
+            { id: 3, name: "Satoshi Nakamoto II", type: "Blockchain", total: "12M", img: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=200&q=80" },
+            { id: 4, name: "Elena Musk", type: "SpaceTech", total: "25M", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80" }
+        ];
+
+        function goTo(page) {
+            const pages = document.querySelectorAll('.page');
+            for (let pageEl of pages) {
+                pageEl.classList.add('hide');
+            }
+
+            const target = document.getElementById(page);
+            if (target) {
+                target.classList.remove('hide');
+                window.scrollTo(0, 0);
+            }
+        }
+
+        function viewInv(id) {
+            const inv = invData.find(i => i.id === id);
+            if (!inv) return;
+
+            document.getElementById('inv-pic').src = inv.img;
+            document.getElementById('inv-title').innerText = inv.name;
+            document.getElementById('inv-type').innerText = inv.type + " Investor";
+            document.getElementById('inv-total').innerText = "$" + inv.total;
+
+            goTo('inv-profile');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            goTo('inv-page');
+        });
+    </script>
+</body>
+
+</html>

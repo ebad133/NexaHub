@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexaHub | Future of Investment</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #05070a;
+            color: #ffffff;
+            min-height: 900px;
+            background-image:
+                radial-gradient(circle at 116px 250px, rgba(188, 19, 254, 0.08), transparent 25%),
+                radial-gradient(circle at 1124px 200px, rgba(0, 242, 255, 0.08), transparent 25%);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .text-cyan {
+            color: #00f2ff;
+        }
+
+        .text-purple {
+            color: #bc13fe;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+
+        .container2 {
+            margin-bottom: 32px;
+        }
+
+        .container3 {
+            margin-top: 64px;
+        }
+
+        .container4 {
+            margin-top: 96px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            text-transform: uppercase;
+            font-size: 14.4px;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: rgba(0, 242, 255, 0.1);
+            border-color: #00f2ff;
+            color: #00f2ff;
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: #00f2ff;
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(188, 19, 254, 0.1);
+            border-color: #bc13fe;
+            color: #bc13fe;
+        }
+
+        .btn-secondary:hover {
+            background: #bc13fe;
+            color: #fff;
+            box-shadow: 0 0 30px rgba(188, 19, 254, 0.4);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+
+        .page-section {
+            padding-top: 100px;
+            padding-bottom: 60px;
+            min-height: 900px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: 19.2px;
+            color: #a0aec0;
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        .hero-bg-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -300px;
+            margin-left: -300px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 242, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 64px;
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+            color: #00f2ff;
+        }
+
+        .step-card {
+            position: relative;
+            padding: 32px;
+            border-left: 2px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .step-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.05);
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin: 32px 0;
+        }
+
+        .badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-cyan {
+            background: rgba(0, 242, 255, 0.15);
+            color: #00f2ff;
+        }
+
+        .profile-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            object-fit: cover;
+            background: #333;
+        }
+
+
+        .story-card {
+            display: flex;
+            gap: 16px;
+            align-items: start;
+        }
+
+
+        .small-card {
+            padding: 20px;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 7, 10, 0.6);
+            border-bottom: 1px solid rgba(0, 242, 255, 0.1);
+            padding: 16px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbarcontainer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #00f2ff, #bc13fe);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .logo:hover {
+            filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.6));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 14.4px;
+            font-weight: 500;
+            color: #a0aec0;
+            position: relative;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00f2ff, #bc13fe);
+            transition: width 0.3s;
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            text-transform: uppercase;
+            font-size: 14.4px;
+            display: inline-block;
+        }
+
+        .btn1 {
+            background: rgba(0, 242, 255, 0.05);
+            border: 1px solid #00f2ff;
+            color: #00f2ff;
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.2), inset 0 0 10px rgba(0, 242, 255, 0.1);
+        }
+
+        .btn1:hover {
+            background: #00f2ff;
+            color: #000;
+            box-shadow: 0 0 40px rgba(0, 242, 255, 0.6);
+        }
+
+        footer {
+            font-family: 'Inter', sans-serif;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 64px 0 32px 0;
+            text-align: center;
+            color: #a0aec0;
+            width: 100%;
+            background-color: #05070a;
+            background-image: linear-gradient(to top, rgba(255, 255, 255, 0.02), transparent);
+        }
+
+        .footercontainer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #00f2ff, #bc13fe);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .footer-desc {
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .newsletter-box {
+            margin-bottom: 40px;
+        }
+
+        .newsletter-input {
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            outline: none;
+            width: 250px;
+            margin-right: 10px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .newsletter-btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: none;
+            background: #00f2ff;
+            color: #000;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+        }
+
+        .social-icons {
+            margin-bottom: 32px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover img {
+            transform: translateY(-5px);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #a0aec0;
+            transition: 0.3s ease;
+            font-size: 15.2px;
+        }
+
+        .footer-links a:hover {
+            color: #00f2ff;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbarcontainer nav-container">
+            <div class="logo">
+                <i class="fas fa-cube"></i> NEXAHUB
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="initiatives.html">Initiatives</a>
+                <a href="investors.html">Investors</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+
+            <div>
+                <a href="login.html">
+                    <button class="btn btn1">Login</button>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main class="page-section">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg-glow"></div>
+            <div class="container">
+                <h1>WHERE IDEAS<br><span class="text-cyan">MEET CAPITAL</span></h1>
+                <p class="text-muted">The premier decentralized 2030 investment gateway connecting visionary founders
+                    with elite global investors.</p>
+                <div style="display: flex; gap: 16px; justify-content: center;">
+                    <a href="./initiatives.html">
+                        <button style="border: 1px solid #00f2ff;" class="btn btn-primary">Explore
+                            Initiatives</button></a>
+                    <a href="./investors.html">
+                        <button style="border: 1px solid #bc13fe;" class="btn btn-secondary">Meet
+                            Investors</button></a>
+                </div>
+
+                <!-- Features -->
+                <div class="features-grid">
+                    <div class="glass-card">
+                        <i class="fas fa-brain feature-icon"></i>
+                        <h3>AI Matching</h3>
+                        <p class="text-muted">Smart algorithms connect you with the perfect investment partners.</p>
+                    </div>
+                    <div class="glass-card">
+                        <i class="fas fa-shield-alt feature-icon"></i>
+                        <h3>Secure Escrow</h3>
+                        <p class="text-muted">Funds are held securely via smart contracts.</p>
+                    </div>
+                    <div class="glass-card">
+                        <i class="fas fa-chart-line feature-icon"></i>
+                        <h3>Real-Time Analytics</h3>
+                        <p class="text-muted">Live dashboards with predictive ROI modeling.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <div class="container container2">
+            <h2 class="text-center container2">How It Works</h2>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+                <div class="glass-card step-card">
+                    <h3 class="text-cyan">Create Profile</h3>
+                    <p class="text-muted">Founders submit proposals. Investors set their preferences.</p>
+                </div>
+                <div class="glass-card step-card">
+                    <h3 class="text-purple">Get Matched</h3>
+                    <p class="text-muted">Our system finds perfect matches between capital and innovation.</p>
+                </div>
+                <div class="glass-card step-card">
+                    <h3 class="text-cyan">Execute</h3>
+                    <p class="text-muted">Smart contracts handle funding with full transparency.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Stories -->
+        <div class="container container4">
+            <h2 class="text-center container2">Success Stories</h2>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 32px;">
+                <div class="glass-card story-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80"
+                        class="profile-img" alt="Sarah Jenkins">
+                    <div>
+                        <p class="text-muted" style="font-style: italic;">"NexaHub cut our fundraising time by 70%. The
+                            AI matching is frighteningly accurate."</p>
+                        <h4 style="margin-top: 16px;">Sarah Jenkins</h4>
+                        <span class="text-cyan" style="font-size: 12.8px;">CEO, EcoSynthetics</span>
+                    </div>
+                </div>
+                <div class="glass-card story-card">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=100&q=80"
+                        class="profile-img" alt="Leo Vance">
+                    <div>
+                        <p class="text-muted" style="font-style: italic;">"The dashboard gives me clarity I can't get
+                            anywhere else. Managing 15 investments has never been easier."</p>
+                        <h4 style="margin-top: 16px;">Leo Vance</h4>
+                        <span class="text-purple" style="font-size: 12.8px;">Angel Investor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Global Impact -->
+        <div class="container container4 text-center">
+            <h2 class="container2">Our Global Impact</h2>
+            <div class="grid-4">
+                <div class="glass-card small-card">
+                    <div class="text-cyan" style="font-size: 40px; font-weight: 700; font-family: 'Orbitron';">$500M+
+                    </div>
+                    <div class="text-muted">Capital Deployed</div>
+                </div>
+                <div class="glass-card small-card">
+                    <div class="text-purple" style="font-size: 40px; font-weight: 700; font-family: 'Orbitron';">1,200+
+                    </div>
+                    <div class="text-muted">Startups Funded</div>
+                </div>
+                <div class="glass-card small-card">
+                    <div class="text-cyan" style="font-size: 40px; font-weight: 700; font-family: 'Orbitron';">50+</div>
+                    <div class="text-muted">Unicorns Created</div>
+                </div>
+                <div class="glass-card small-card">
+                    <div class="text-purple" style="font-size: 40px; font-weight: 700; font-family: 'Orbitron';">150+
+                    </div>
+                    <div class="text-muted">Countries</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Roadmap -->
+        <div class="container container4">
+            <h2 class="text-center container2">Roadmap to 2030</h2>
+            <div class="grid-4">
+                <div class="glass-card" style="border-top: 4px solid #00f2ff;">
+                    <h3 style="margin-bottom: 8px;">2024</h3>
+                    <h4 class="text-cyan">Foundation</h4>
+                    <p class="text-muted" style="font-size: 14.4px; margin-top: 16px;">Launch of Beta platform,
+                        onboarding first 1,000 investors.</p>
+                </div>
+                <div class="glass-card" style="border-top: 4px solid #bc13fe;">
+                    <h3 style="margin-bottom: 8px;">2026</h3>
+                    <h4 class="text-purple">Expansion</h4>
+                    <p class="text-muted" style="font-size: 14.4px; margin-top: 16px;">Integration with global stock
+                        exchanges and mobile app launch.</p>
+                </div>
+                <div class="glass-card" style="border-top: 4px solid #00f2ff;">
+                    <h3 style="margin-bottom: 8px;">2028</h3>
+                    <h4 class="text-cyan">Dominance</h4>
+                    <p class="text-muted" style="font-size: 14.4px; margin-top: 16px;">AI becomes fully autonomous in
+                        due diligence.</p>
+                </div>
+                <div class="glass-card" style="border-top: 4px solid #bc13fe;">
+                    <h3 style="margin-bottom: 8px;">2030</h3>
+                    <h4 class="text-purple">Singularity</h4>
+                    <p class="text-muted" style="font-size: 14.4px; margin-top: 16px;">Complete decentralization. The
+                        platform runs as a DAO.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Why NexaHub -->
+        <div class="container container4">
+            <h2 class="text-center container2">Why NexaHub?</h2>
+            <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px;">
+                <div class="glass-card">
+                    <h3 class="text-purple">For Founders</h3>
+                    <ul style="margin-top: 16px; color: #a0aec0; line-height: 1.8;">
+                        <li><i class="fas fa-check text-cyan"></i> Access to global capital</li>
+                        <li><i class="fas fa-check text-cyan"></i> Automated due diligence</li>
+                        <li><i class="fas fa-check text-cyan"></i> Mentorship network</li>
+                    </ul>
+                </div>
+                <div class="glass-card">
+                    <h3 class="text-cyan">For Investors</h3>
+                    <ul style="margin-top: 16px; color: #a0aec0; line-height: 1.8;">
+                        <li><i class="fas fa-check text-purple"></i> Pre-vetted high-growth startups</li>
+                        <li><i class="fas fa-check text-purple"></i> Diversified portfolio tools</li>
+                        <li><i class="fas fa-check text-purple"></i> Liquid secondary market</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ready to Get Started -->
+        <div class="container container4">
+            <div class="text-center">
+                <h2 class="container2">Ready to Get Started?</h2>
+                <p class="text-muted container2">Join NexaHub today and be part of the innovation journey.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footercontainer">
+
+            <div class="footer-brand">NEXAHUB</div>
+            <p class="footer-desc">
+                Empowering the next generation of innovators. Join us in shaping the future through decentralized
+                technology and strategic capital allocation.
+            </p>
+
+            <div class="newsletter-box">
+                <input type="email" class="newsletter-input" placeholder="Enter your email...">
+                <button class="newsletter-btn"
+                    onclick="alert('Sorry! Newsletter service is currently unavailable.')">Subscribe</button>
+            </div>
+
+            <div class="social-icons">
+                <a href="#"><img src="https://api.iconify.design/mdi:twitter.svg?color=%23a0aec0" alt="Twitter"></a>
+                <a href="#"><img src="https://api.iconify.design/mdi:linkedin.svg?color=%23a0aec0" alt="LinkedIn"></a>
+                <a href="#"><img src="https://api.iconify.design/mdi:instagram.svg?color=%23a0aec0" alt="Instagram"></a>
+                <a href="#"><img src="https://api.iconify.design/mdi:facebook.svg?color=%23a0aec0" alt="Facebook"></a>
+            </div>
+
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="faq.html">FAQ</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>&copy; 2026 NexaHub. Where Ideas Meet Capital.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

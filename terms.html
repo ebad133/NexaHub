@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexaHub | Terms & Conditions</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #05070a;
+            color: #ffffff;
+            overflow-x: hidden;
+            min-height: 900px;
+            background-image: radial-gradient(circle at 288px 450px, rgba(188, 19, 254, 0.08), transparent 25%), radial-gradient(circle at 1632px 270px, rgba(0, 242, 255, 0.08), transparent 25%);
+        }
+
+        h2,h4 {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .heading {
+            margin-bottom: 32px;
+        }
+
+        .glassEffect-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .main-page {
+            padding-top: 60px;
+            padding-bottom: 60px;
+            min-height: auto;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 7, 10, 0.6);
+            border-bottom: 1px solid rgba(0, 242, 255, 0.1);
+            padding: 16px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #00f2ff, #bc13fe);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .logo:hover {
+            filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.6));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 14.4px;
+            font-weight: 500;
+            color: #a0aec0;
+            position: relative;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00f2ff, #bc13fe);
+            transition: width 0.3s;
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            text-transform: uppercase;
+            font-size: 14.4px;
+            display: inline-block;
+        }
+
+        .btn1 {
+            background: rgba(0, 242, 255, 0.05);
+            border: 1px solid #00f2ff;
+            color: #00f2ff;
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.2), inset 0 0 10px rgba(0, 242, 255, 0.1);
+        }
+
+        .btn1:hover {
+            background: #00f2ff;
+            color: #000;
+            box-shadow: 0 0 40px rgba(0, 242, 255, 0.6);
+        }
+
+        footer {
+            font-family: 'Inter', sans-serif;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 64px 0 32px 0;
+            text-align: center;
+            color: #a0aec0;
+            width: 100%;
+            background-color: #05070a;
+            background-image: linear-gradient(to top, rgba(255, 255, 255, 0.02), transparent);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #00f2ff, #bc13fe);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .footer-desc {
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .newsletter-box {
+            margin-bottom: 40px;
+        }
+
+        .newsletter-input {
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            outline: none;
+            width: 250px;
+            margin-right: 10px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .newsletter-btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: none;
+            background: #00f2ff;
+            color: #000;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+        }
+
+        .social-icons {
+            margin-bottom: 32px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover img {
+            transform: translateY(-5px);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #a0aec0;
+            transition: 0.3s ease;
+            font-size: 15.2px;
+        }
+
+        .footer-links a:hover {
+            color: #00f2ff;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-cube"></i> NEXAHUB
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="initiatives.html">Initiatives</a>
+                <a href="investors.html">Investors</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+
+            <div>
+                <a href="login.html">
+                    <button class="btn btn1">Login</button>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <br><br><br><br><br><br><br><br>
+
+    <!-- TERMS CONTENT -->
+    <section id="terms" class="main-page container" style="max-width: 800px;">
+        <h2 class="heading">Terms & Conditions</h2>
+        <div class="glassEffect-card" style="line-height: 1.8; color: #a0aec0;">
+            <p>Last updated: January 2030</p><br>
+            <h4 style="color: #fff;">1. Acceptance of Terms</h4>
+            <p>By accessing and using NexaHub, you accept and agree to be bound by the terms and provision of this
+                agreement.</p><br>
+            <h4 style="color: #fff;">2. Investment Risks</h4>
+            <p>Investing in startups involves a high degree of risk. You acknowledge that you are capable of evaluating
+                the merits and risks of such investments.</p>
+        </div>
+    </section>
+    <br><br><br><br><br><br>
+
+    <footer>
+        <div class="container">
+
+            <div class="footer-brand">NEXAHUB</div>
+            <p class="footer-desc">
+                Empowering the next generation of innovators. Join us in shaping the future through decentralized
+                technology and strategic capital allocation.
+            </p>
+
+            <div class="newsletter-box">
+                <input type="email" class="newsletter-input" placeholder="Enter your email...">
+                <button class="newsletter-btn"
+                    onclick="alert('Sorry! Newsletter service is currently unavailable.')">Subscribe</button>
+            </div>
+
+            <div class="social-icons">
+                <a href="#"><img src="https://api.iconify.design/mdi:twitter.svg?color=%23a0aec0" alt="Twitter"></a>
+                <a href="#"><img src="https://api.iconify.design/mdi:linkedin.svg?color=%23a0aec0" alt="LinkedIn"></a>
+                <a href="#"><img src="https://api.iconify.design/mdi:instagram.svg?color=%23a0aec0" alt="Instagram"></a>
+                <a href="#"><img src="https://api.iconify.design/mdi:facebook.svg?color=%23a0aec0" alt="Facebook"></a>
+            </div>
+
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="faq.html">FAQ</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>&copy; 2026 NexaHub. Where Ideas Meet Capital.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

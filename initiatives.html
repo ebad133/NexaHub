@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexaHub | Initiatives</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #05070a;
+            color: #ffffff;
+            min-height: 900px;
+
+            background-image:
+                radial-gradient(circle at 288px 450px, rgba(188, 19, 254, 0.08), transparent 25%),
+                radial-gradient(circle at 1632px 270px, rgba(0, 242, 255, 0.08), transparent 25%);
+        }
+
+        .sub-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .page-section {
+            padding-top: 100px;
+            padding-bottom: 60px;
+            min-height: 900px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .main-heading {
+            margin-bottom: 32px;
+        }
+
+        .initiative-cards {
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 32px;
+        }
+
+        .cards {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .cards:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .cards img {
+            width: 317px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            opacity: 0.8;
+        }
+
+        .card-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13.6px;
+            color: #a0aec0;
+            margin-bottom: 16px;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            margin: 16px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 6px;
+            background: linear-gradient(135deg, #00f2ff, #bc13fe);
+        }
+
+        .badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            background: rgba(0, 242, 255, 0.15);
+            color: #00f2ff;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 200px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            padding: 10px 16px;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: #00f2ff;
+        }
+
+        .detail-grid-section {
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 32px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            text-transform: uppercase;
+            font-size: 14.4px;
+            display: inline-block;
+        }
+
+        .btn1-cyan {
+            background: rgba(0, 242, 255, 0.1);
+            border-color: #00f2ff;
+            color: #00f2ff;
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+        }
+
+        .btn1-cyan:hover {
+            background: #00f2ff;
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.4);
+        }
+
+        .btn2-purple {
+            background: rgba(188, 19, 254, 0.1);
+            border-color: #bc13fe;
+            color: #bc13fe;
+        }
+
+        .btn2-purple:hover {
+            background: #bc13fe;
+            color: #fff;
+            box-shadow: 0 0 30px rgba(188, 19, 254, 0.4);
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 7, 10, 0.6);
+            border-bottom: 1px solid rgba(0, 242, 255, 0.1);
+            padding: 16px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(135deg, #00f2ff, #bc13fe);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .logo:hover {
+            filter: drop-shadow(0 0 8px rgba(0, 242, 255, 0.6));
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            font-size: 14.4px;
+            font-weight: 500;
+            color: #a0aec0;
+            position: relative;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00f2ff, #bc13fe);
+            transition: width 0.3s;
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            text-transform: uppercase;
+            font-size: 14.4px;
+            display: inline-block;
+        }
+
+        .btn1 {
+            background: rgba(0, 242, 255, 0.05);
+            border: 1px solid #00f2ff;
+            color: #00f2ff;
+            box-shadow: 0 0 10px rgba(0, 242, 255, 0.2), inset 0 0 10px rgba(0, 242, 255, 0.1);
+        }
+
+        .btn1:hover {
+            background: #00f2ff;
+            color: #000;
+            box-shadow: 0 0 40px rgba(0, 242, 255, 0.6);
+        }
+
+        footer {
+            font-family: 'Inter', sans-serif;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 64px 0 32px 0;
+            text-align: center;
+            color: #a0aec0;
+            width: 100%;
+            background-color: #05070a;
+            background-image: linear-gradient(to top, rgba(255, 255, 255, 0.02), transparent);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #00f2ff, #bc13fe);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .footer-desc {
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        .newsletter-box {
+            margin-bottom: 40px;
+        }
+
+        .newsletter-input {
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            outline: none;
+            width: 250px;
+            margin-right: 10px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .newsletter-btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: none;
+            background: #00f2ff;
+            color: #000;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+        }
+
+        .social-icons {
+            margin-bottom: 32px;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .social-icons img {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover img {
+            transform: translateY(-5px);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #a0aec0;
+            transition: 0.3s ease;
+            font-size: 15.2px;
+        }
+
+        .footer-links a:hover {
+            color: #00f2ff;
+        }
+    </style>
+
+    <script>
+        const initiativesData = [
+            {
+                id: 1,
+                title: "NeuroLink AI",
+                category: "HealthTech",
+                goal: 500000,
+                raised: 350000,
+                daysLeft: 12,
+                image: "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=500&q=80",
+                desc: "Developing direct neural interfaces for rapid information transfer and memory augmentation.",
+                founder: "Dr. Elena Vos"
+            },
+            {
+                id: 2,
+                title: "Quantum Shield",
+                category: "CyberSecurity",
+                goal: 1200000,
+                raised: 100000,
+                daysLeft: 45,
+                image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=500&q=80",
+                desc: "Post-quantum cryptography solutions for enterprise and government data protection.",
+                founder: "Marcus Chen"
+            },
+            {
+                id: 3,
+                title: "EcoSynthetics",
+                category: "CleanTech",
+                goal: 750000,
+                raised: 600000,
+                daysLeft: 5,
+                image: "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=500&q=80",
+                desc: "Biodegradable polymers derived from algae, replacing single-use plastics globally.",
+                founder: "Sarah Jenkins"
+            },
+            {
+                id: 4,
+                title: "Orbital Logistics",
+                category: "SpaceTech",
+                goal: 2500000,
+                raised: 2100000,
+                daysLeft: 20,
+                image: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=500&q=80",
+                desc: "Autonomous supply chain solutions for orbital stations and lunar bases.",
+                founder: "Cmdr. Alex Ray"
+            },
+            {
+                id: 5,
+                title: "MetaVerse Edu",
+                category: "EdTech",
+                goal: 300000,
+                raised: 45000,
+                daysLeft: 60,
+                image: "https://images.unsplash.com/photo-1614728263952-84ea256f9679?auto=format&fit=crop&w=500&q=80",
+                desc: "Immersive VR learning environments democratizing access to world-class education.",
+                founder: "Priya Patel"
+            },
+            {
+                id: 6,
+                title: "AgriDrone Systems",
+                category: "AgriTech",
+                goal: 450000,
+                raised: 400000,
+                daysLeft: 8,
+                image: "https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=500&q=80",
+                desc: "AI-driven drone swarms for precision agriculture and crop monitoring.",
+                founder: "John Doe"
+            }
+
+        ];
+
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.add('hidden');
+                section.style.display = 'none';
+            });
+
+            const target = document.getElementById(pageId);
+            if (target) {
+                target.classList.remove('hidden');
+                target.style.display = 'block';
+                window.scrollTo(0, 0);
+            }
+        }
+
+        function openInitiative(id) {
+            const item = initiativesData.find(i => i.id === id);
+            if (!item) return;
+
+            const percent = Math.round((item.raised / item.goal) * 100);
+
+            document.getElementById('detail-category').innerText = item.category;
+            document.getElementById('detail-title').innerText = item.title;
+            document.getElementById('detail-price').innerText = `$${item.raised.toLocaleString()}`;
+            document.getElementById('detail-goal').innerText = `raised of $${item.goal.toLocaleString()} goal`;
+            document.getElementById('detail-image').src = item.image;
+            document.getElementById('detail-desc').innerText = item.desc;
+            document.getElementById('detail-progress').style.width = `${(percent / 100) * 564}px`;
+            document.getElementById('detail-percent').innerText = `${percent}% Funded`;
+            document.getElementById('detail-days').innerText = `${item.daysLeft} Days Left`;
+            document.getElementById('detail-founder').innerText = item.founder;
+
+            navigateTo('initiative-details-page');
+        }
+    </script>
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-cube"></i> NEXAHUB
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="initiatives.html">Initiatives</a>
+                <a href="investors.html">Investors</a>
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+
+            <div>
+                <a href="login.html">
+                    <button class="btn btn1">Login</button>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <br><br>
+    <section id="main-container">
+
+        <section id="initiatives" class="page-section sub-container">
+            <h2 class="main-heading">Explore Initiatives</h2>
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Search initiatives...">
+                <button class="btn btn2-purple" onclick="alert('Submission portal opening soon!')">
+                    Submit Proposal
+                </button>
+            </div>
+
+            <div class="initiative-cards">
+                <div class="cards">
+                    <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=500&q=80"
+                        alt="NeuroLink AI">
+                    <div class="card-details">
+                        <span class="badge">HealthTech</span>
+                        <span>
+                            <i class="far fa-clock"></i>
+                            12 days left</span>
+                    </div>
+                    <h3>NeuroLink AI</h3>
+                    <p style="color: #a0aec0; font-size: 14.4px; margin-bottom: 16px;">Revolutionizing the
+                        HealthTech industry.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 222px"></div>
+                    </div>
+                    <div class="card-details">
+                        <span>$350k raised</span>
+                        <span>70%</span>
+                    </div>
+                    <button class="btn btn1-cyan" style="width: 317px" onclick="openInitiative(1)">View
+                        Details</button>
+                </div>
+                <div class="cards">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=500&q=80"
+                        alt="Quantum Shield">
+                    <div class="card-details">
+                        <span class="badge">CyberSecurity</span>
+                        <span>
+                            <i class="far fa-clock"></i>
+                            45 days left</span>
+                    </div>
+                    <h3>Quantum Shield</h3>
+                    <p style="color: #a0aec0; font-size: 14.4px; margin-bottom: 16px;">Next-gen quantum
+                        encryption for enterprise.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 32px"></div>
+                    </div>
+                    <div class="card-details">
+                        <span>$100k raised</span>
+                        <span>10%</span>
+                    </div>
+                    <button class="btn btn1-cyan" style="width: 317px" onclick="openInitiative(2)">View
+                        Details</button>
+                </div>
+                <div class="cards">
+                    <img src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&w=500&q=80"
+                        alt="EcoSynthetics">
+                    <div class="card-details">
+                        <span class="badge">CleanTech</span>
+                        <span>
+                            <i class="far fa-clock"></i>
+                            5 days left</span>
+                    </div>
+                    <h3>EcoSynthetics</h3>
+                    <p style="color: #a0aec0; font-size: 14.4px; margin-bottom: 16px;">Sustainable materials
+                        for a greener future.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 254px"></div>
+                    </div>
+                    <div class="card-details">
+                        <span>$600k raised</span>
+                        <span>80%</span>
+                    </div>
+                    <button class="btn btn1-cyan" style="width: 317px" onclick="openInitiative(3)">View
+                        Details</button>
+                </div>
+                <div class="cards">
+                    <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=500&q=80"
+                        alt="Orbital Logistics">
+                    <div class="card-details">
+                        <span class="badge">SpaceTech</span>
+                        <span>
+                            <i class="far fa-clock"></i>
+                            20 days left</span>
+                    </div>
+                    <h3>Orbital Logistics</h3>
+                    <p style="color: #a0aec0; font-size: 14.4px; margin-bottom: 16px;">Autonomous supply chain
+                        for orbital stations.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 266px"></div>
+                    </div>
+                    <div class="card-details">
+                        <span>$2.1M raised</span>
+                        <span>84%</span>
+                    </div>
+                    <button class="btn btn1-cyan" style="width: 317px" onclick="openInitiative(4)">View
+                        Details</button>
+                </div>
+                <div class="cards">
+                    <img src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?auto=format&fit=crop&w=500&q=80"
+                        alt="MetaVerse Edu">
+                    <div class="card-details">
+                        <span class="badge">EdTech</span>
+                        <span>
+                            <i class="far fa-clock"></i>
+                            60 days left</span>
+                    </div>
+                    <h3>MetaVerse Edu</h3>
+                    <p style="color: #a0aec0; font-size: 14.4px; margin-bottom: 16px;">Immersive VR learning
+                        environments for schools.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 48px"></div>
+                    </div>
+                    <div class="card-details">
+                        <span>$45k raised</span>
+                        <span>15%</span>
+                    </div>
+                    <button class="btn btn1-cyan" style="width: 317px" onclick="openInitiative(5)">View
+                        Details</button>
+                </div>
+                <div class="cards">
+                    <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=500&q=80"
+                        alt="AgriDrone Systems">
+                    <div class="card-details">
+                        <span class="badge">AgriTech</span>
+                        <span>
+                            <i class="far fa-clock"></i>
+                            8 days left</span>
+                    </div>
+                    <h3>AgriDrone Systems</h3>
+                    <p style="color: #a0aec0; font-size: 14.4px; margin-bottom: 16px;">AI-driven crop
+                        monitoring drone swarms.</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 279px"></div>
+                    </div>
+                    <div class="card-details">
+                        <span>$400k raised</span>
+                        <span>88%</span>
+                    </div>
+                    <button class="btn btn1-cyan" style="width: 317px" onclick="openInitiative(6)">View
+                        Details</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="initiative-details-page" class="page-section sub-container hidden">
+            <button class="btn btn2-purple" onclick="navigateTo('initiatives')"
+                style="margin-bottom: 32px; padding: 8px 16px;">
+                <i class="fas fa-arrow-left"></i>
+                Back</button>
+
+            <div
+                style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; flex-wrap: wrap; gap: 16px;">
+                <div>
+                    <span id="detail-category" class="badge"
+                        style="font-size: 16px; margin-bottom: 8px; display: inline-block;"></span>
+                    <h1 id="detail-title" style="font-size: 48px;"></h1>
+                </div>
+                <div style="text-align: right;">
+                    <div id="detail-price" style="font-size: 24px; font-weight: bold; color: #00f2ff;">
+                    </div>
+                    <div id="detail-goal" style="color: #c0baa0;"></div>
+                </div>
+            </div>
+
+            <div class="detail-grid-section">
+                <div class="cards">
+                    <img id="detail-image" src=""
+                        style="width: 564px; height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 32px;"
+                        alt="Project Image">
+                    <h3>About the Initiative</h3>
+                    <p id="detail-desc" style="color: #a0aec0; line-height: 1.6; margin-top: 16px;"></p>
+                </div>
+
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+                    <div class="cards">
+                        <h3>Funding Status</h3>
+                        <div class="progress-bar" style="height: 12px; margin: 24px 0;">
+                            <div id="detail-progress" class="progress-fill"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 24px;">
+                            <span id="detail-percent"></span>
+                            <span id="detail-days"></span>
+                        </div>
+                        <button class="btn btn1-cyan" style="width: 564px; font-size: 17.6px;">Invest Now</button>
+                    </div>
+
+                    <div class="cards">
+                        <h3>Founder</h3>
+                        <div style="display: flex; align-items: center; gap: 16px; margin-top: 16px;">
+                            <div style="width: 50px; height: 50px; background: #333; border-radius: 50%;"></div>
+                            <div>
+                                <div id="detail-founder" style="font-weight: bold;"></div>
+                                <div style="font-size: 12.8px; color: #a0aec0;">CEO & Founder</div>
+                            </div>
+                        </div>
+                        <button class="btn btn2-purple" style="width: 564px; margin-top: 16px;">Contact
+                            Founder</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </section>
+    <br><br><br>
+
+    <footer>
+        <div class="container">
+
+            <div class="footer-brand">NEXAHUB</div>
+            <p class="footer-desc">
+                Empowering the next generation of innovators. Join us in shaping the future through decentralized
+                technology and strategic capital allocation.
+            </p>
+
+            <div class="newsletter-box">
+                <input type="email" class="newsletter-input" placeholder="Enter your email...">
+                <button class="newsletter-btn"
+                    onclick="alert('Sorry! Newsletter service is currently unavailable.')">Subscribe</button>
+            </div>
+
+            <div class="social-icons">
+                <a href="#"><img src="https://api.iconify.design/mdi:twitter.svg?color=%23a0aec0" alt="Twitter"></a>
+                <a href="#"><img src="https://api.iconify.design/mdi:linkedin.svg?color=%23a0aec0" alt="LinkedIn"></a>
+                <a href="#"><img src="https://api.iconify.design/mdi:instagram.svg?color=%23a0aec0" alt="Instagram"></a>
+                <a href="#"><img src="https://api.iconify.design/mdi:facebook.svg?color=%23a0aec0" alt="Facebook"></a>
+            </div>
+
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="faq.html">FAQ</a>
+                <a href="terms.html">Terms & Conditions</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>&copy; 2026 NexaHub. Where Ideas Meet Capital.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
